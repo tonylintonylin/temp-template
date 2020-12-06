@@ -5,13 +5,13 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using temp.Domain;
 
-namespace temp.Controllers
+namespace temp.Controllers.Customer
 {
     public class List
     {
-        public class Query : IRequest<List<Domain.ThingA>> { }
+        public class Query : IRequest<List<Domain.Customer>> { }
 
-        public class Handler : IRequestHandler<Query, List<ThingA>>
+        public class Handler : IRequestHandler<Query, List<Domain.Customer>>
         {
             private readonly tempContext _context;
             public Handler(tempContext context)
@@ -19,12 +19,12 @@ namespace temp.Controllers
                 _context = context;
             }
 
-            public async Task<List<ThingA>> Handle(Query request,
+            public async Task<List<Domain.Customer>> Handle(Query request,
                 CancellationToken cancellationToken)
             {
-                var thingA = await _context.ThingA.ToListAsync();
+                var customer = await _context.Customer.ToListAsync();
 
-                return thingA;
+                return customer;
             }
         }
     }

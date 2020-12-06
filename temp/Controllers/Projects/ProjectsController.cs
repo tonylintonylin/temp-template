@@ -1,29 +1,26 @@
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using MediatR;
-using System.Collections.Generic;
 using temp.Domain;
+using System.Collections.Generic;
 
-namespace temp.Controllers
+namespace temp.Controllers.Projects
 {
     [ApiController]
-    // [Authorize]
-    [Menu("ThingsA")]
-    // [Route("thingsa")]
+    [Menu("Project")]
     [Route("api/[controller]")]
-    public class ThingsAController : Controller
+    public class ProjectsController : Controller
     {
         private readonly IMediator _mediator;
 
-        public ThingsAController(IMediator mediator)
+        public ProjectsController(IMediator mediator)
         {
             _mediator = mediator; 
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<ThingA>>> List()
+        public async Task<ActionResult<List<Project>>> List()
         {
             return await _mediator.Send(new List.Query());
         }

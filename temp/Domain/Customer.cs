@@ -15,6 +15,7 @@ namespace temp.Domain
         public string City { get; set; }
         public string Country { get; set; }
         public string Comments { get; set; }
+        
         public DateTime CreatedDate { get; set; }
         public DateTime CreatedOn { get; set; }
         public int? CreatedBy { get; set; }

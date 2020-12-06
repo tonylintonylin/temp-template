@@ -14,6 +14,7 @@ namespace temp.Domain
             : base(options)
         {
         }
+        public virtual DbSet<Project> Project { get; set; }
         public virtual DbSet<Customer> Customer { get; set; }
         public virtual DbSet<Error> Error { get; set; }
         public virtual DbSet<Login> Login { get; set; }
@@ -35,6 +36,82 @@ namespace temp.Domain
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Project>(entity =>
+            {
+                entity.Property(p => p.Name)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+            
+            // modelBuilder.Entity<Project>(entity =>
+            // {
+            //     entity.HasIndex(e => e.Name)
+            //         .HasName("IndexProjectName");
+
+            //     entity.HasIndex(e => e.Description)
+            //         .HasMaxLength(100);
+
+            //     entity.HasIndex(e => e.IssueId)
+            //         .HasName("IndexProjectIssueId");
+
+            //     entity.Property(e => e.IssueName)
+            //         .HasName("IndexProjectIssueName");
+
+            //     entity.Property(e => e.ChangedOn).HasDefaultValueSql("(getdate())");
+
+            //     entity.Property(e => e.CreatedDate).HasDefaultValueSql("(getdate())");
+
+            //     entity.Property(e => e.CreatedOn).HasDefaultValueSql("(getdate())");
+
+            //     entity.Property(e => e.Name)
+            //         .IsRequired()
+            //         .HasMaxLength(100);
+
+            //     entity.Property(e => e.OwnerAlias)
+            //         .IsRequired()
+            //         .HasMaxLength(20);
+
+            //     entity.Property(e => e.IssueName).HasMaxLength(100);
+
+            //     entity.HasOne(d => d.Owner)
+            //         .WithMany(p => p.Project)
+            //         .HasForeignKey(d => d.OwnerId)
+            //         .OnDelete(DeleteBehavior.ClientSetNull)
+            //         .HasConstraintName("FK_CAMPAIGN_REF1_USER");
+
+            //     entity.HasOne(d => d.Issue)
+            //         .WithMany(p => p.Project)
+            //         .HasForeignKey(d => d.IssueId)
+            //         .HasConstraintName("FK_Project_REFERENCE_Issue");
+            // });
+
+            // modelBuilder.Entity<Issue>(entity =>
+            // {
+            //     entity.HasIndex(e => e.Name)
+            //         .HasName("IndexIssueName");
+
+            //     entity.HasIndex(e => e.OwnerAlias)
+            //         .HasName("IndexIssueOwnerAlias");
+
+            //     entity.Property(e => e.ChangedOn).HasDefaultValueSql("(getdate())");
+
+            //     entity.Property(e => e.CreatedDate).HasDefaultValueSql("(getdate())");
+
+            //     entity.Property(e => e.CreatedOn).HasDefaultValueSql("(getdate())");
+
+            //     entity.Property(e => e.Name).HasMaxLength(100);
+
+            //     entity.Property(e => e.OwnerAlias)
+            //         .IsRequired()
+            //         .HasMaxLength(20);
+
+            //     entity.HasOne(d => d.Owner)
+            //         .WithMany(p => p.Issue)
+            //         .HasForeignKey(d => d.OwnerId)
+            //         .OnDelete(DeleteBehavior.ClientSetNull)
+            //         .HasConstraintName("FK_CAMPAIGN_REF2_USER");
+            // });
+
             modelBuilder.Entity<Customer>(entity =>
             {
                 entity.HasIndex(e => e.City)
