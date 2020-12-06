@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace temp.Areas.Landing
 {
@@ -9,7 +8,7 @@ namespace temp.Areas.Landing
 
         public override IActionResult Get()
         {
-            try 
+            try
             { 
                 return View(); 
             }

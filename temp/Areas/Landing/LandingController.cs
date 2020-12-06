@@ -7,8 +7,15 @@ namespace temp.Areas.Landing
         #region Pages
 
         [HttpGet("")]
-        public IActionResult Landing() => View();
-
+        public IActionResult Landing()
+        {
+            // add User and Admin roles
+            //await _identityService.CreateRole("User");
+            //await _identityService.CreateUserAsync("Bob", "Pa$$w0rd",);
+            // CreateUserAsync()
+            // add several users with Admin and User roles
+            return View();
+        }
         [HttpGet("error")]
         public IActionResult Error(Error model) => model.Get();
 

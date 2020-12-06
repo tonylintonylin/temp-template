@@ -29,7 +29,6 @@ namespace temp.Domain
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\tonyl\\Desktop\\temp\\temp\\Data\\temp.mdf;Integrated Security=True;MultipleActiveResultSets=true;");
             }
         }
