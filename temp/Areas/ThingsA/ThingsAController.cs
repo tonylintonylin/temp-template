@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 
 namespace temp.Areas.ThingsA
 {
-    [ApiController]
     [Authorize]
     [Menu("ThingsA")]
     [Route("thingsa")]

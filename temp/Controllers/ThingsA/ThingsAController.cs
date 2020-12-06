@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using MediatR;
 using System.Collections.Generic;
 using temp.Domain;
+using static temp.Controllers.ThingsA.List;
 
 namespace temp.Controllers.ThingsA
 {
     [ApiController]
-    // [Authorize]
     [Menu("ThingsA")]
     // [Route("thingsa")]
     [Route("api/[controller]")]
@@ -21,12 +21,19 @@ namespace temp.Controllers.ThingsA
         {
             _mediator = mediator; 
         }
+// return thinga needs to now return result
+        // [HttpGet]
+        // public async Task<ActionResult<List<ThingA>>> List()
+        // {
+        //     return await _mediator.Send(new List.Query());
+        // }
 
         [HttpGet]
-        public async Task<ActionResult<List<ThingA>>> List()
+        public async Task<ActionResult<Result>> List([FromQuery]List.Query query)
         {
-            return await _mediator.Send(new List.Query());
+            return await _mediator.Send(query);
         }
+
         // [HttpGet]
         // public async Task<IActionResult> List([FromQuery]List.Query query)
         // {
