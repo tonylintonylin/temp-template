@@ -1,79 +1,125 @@
+// using Microsoft.AspNetCore.Mvc;
+// using System.Threading.Tasks;
+// using MediatR;
+// using temp.Domain;
+// using System.Collections.Generic;
+// using System;
 
-using Microsoft.AspNetCore.Mvc;
+// namespace temp.Controllers.Projects
+// {
+//     [ApiController]
+//     [Menu("Project")]
+//     [Route("api/[controller]")]
+//     public class ProjectsController : Controller
+//     {
+//         private readonly IMediator _mediator;
+
+//         public ProjectsController(IMediator mediator)
+//         {
+//             _mediator = mediator; 
+//         }
+
+//         [HttpGet]
+//         public async Task<ActionResult<List<Project>>> List()
+//         {
+//             return await _mediator.Send(new List.Query());
+//         }
+
+//         [HttpGet("{id}")]
+//         public async Task<ActionResult<Project>> Details(Guid id)
+//         {
+//             return await _mediator.Send(new Details.Query{Id = id});
+//         }
+
+//         [HttpPost]
+//         public async Task<ActionResult<Unit>> Create()
+//         {
+//             return await _mediator.Send(new Create.Command());
+//         }
+
+//         [HttpPut("{id}")]
+//         public async Task<ActionResult<Unit>> Edit(Guid id, Edit.Command command)
+//         {
+//             command.Id = id;
+//             return await _mediator.Send(command);
+//         }
+
+//         [HttpDelete("{id}")]
+//         public async Task<ActionResult<Unit>> Delete(Guid id) // change to guid later
+//         {
+//             return await _mediator.Send(new Delete.Command{Id = id});
+//         }
+
+//         // Ancillary actions
+
+//         // [HttpGet("import")]  // Step 1
+//         // public IActionResult Import() => new Import().Get();
+
+//         // [HttpPost("import")]  // Step 2
+//         // public async Task<IActionResult> Import(IFormFile file) => await new Import { FormFile = file }.UploadAsync();
+
+//         // [HttpPost("import/go")]   // Step 3
+//         // public async Task<IActionResult> Import(Import model) => await model.PostAsync();
+
+//         // [HttpGet("export")]
+//         // public async Task<IActionResult> Export(Export model) => await model.GetAsync();
+
+//         // #endregion
+//     }
+// }
+
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using temp.Domain;
-using System.Collections.Generic;
 
 namespace temp.Controllers.Projects
 {
-    [ApiController]
-    [Menu("Project")]
     [Route("api/[controller]")]
-    public class ProjectsController : Controller
+    [ApiController]
+    public class ProjectsController : ControllerBase
     {
         private readonly IMediator _mediator;
-
         public ProjectsController(IMediator mediator)
         {
-            _mediator = mediator; 
+            _mediator = mediator;
         }
-
+//         [HttpGet]
+//         public async Task<ActionResult<List<Project>>> List()
+//         {
+//             return await _mediator.Send(new List.Query());
+//         }
         [HttpGet]
         public async Task<ActionResult<List<Project>>> List()
         {
             return await _mediator.Send(new List.Query());
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Project>> Details(Guid id)
+        {
+            return await _mediator.Send(new Details.Query{Id = id});
+        }
 
-        // [HttpGet]
-        // public async Task<IActionResult> List([FromQuery]List.Query query)
-        // {
-        //      return await _mediator.Send(new List.Query());
-        // }
+        [HttpPost]
+        public async Task<ActionResult<Unit>> Create(Create.Command command)
+        {
+            return await _mediator.Send(command);
+        }
 
-        // #region Pages
-
-        // [HttpGet]
-        // public async Task<IActionResult> List([FromQuery] List model) => await model.GetAsync();
-
-        // [HttpGet("{id}", Order = 10)]
-        // public async Task<IActionResult> Detail(Detail model) => await model.GetAsync();
-
-        // [HttpGet("{id}")]
-        // public async Task<ActionResult<Project>> Details(int id)
-        // {
-        //     return await _mediator.Send(new Details.Query{Id = id});
-        // }
-
-        // [HttpGet("edit/{id?}")]
-        // public async Task<IActionResult> Edit(int id) => await new Edit { Id = id }.GetAsync();
-
-        // [HttpPost("edit/{id?}")]
-        // public async Task<IActionResult> Edit(Edit model) => await model.PostAsync();
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Unit>> Edit(Guid id, Edit.Command command)
+        {
+            command.Id = id;
+            return await _mediator.Send(command);
+        }
         
-        // [HttpPost("delete"), AjaxOnly]
-        // public async Task<IActionResult> Delete(Delete model) => await model.PostAsync();
-
-        // [HttpDelete("{id}")]
-        // public async Task<ActionResult<Unit>> Delete(int id) // change to guid later
-        // {
-        //     return await _mediator.Send(new Delete.Command{Id = id});
-        // }
-        // // Ancillary actions
-
-        // [HttpGet("import")]  // Step 1
-        // public IActionResult Import() => new Import().Get();
-
-        // [HttpPost("import")]  // Step 2
-        // public async Task<IActionResult> Import(IFormFile file) => await new Import { FormFile = file }.UploadAsync();
-
-        // [HttpPost("import/go")]   // Step 3
-        // public async Task<IActionResult> Import(Import model) => await model.PostAsync();
-
-        // [HttpGet("export")]
-        // public async Task<IActionResult> Export(Export model) => await model.GetAsync();
-
-        // #endregion
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Unit>> Delete(Guid id)
+        {
+            return await _mediator.Send(new Delete.Command{Id = id});
+        }
     }
 }

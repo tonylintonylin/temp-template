@@ -6,12 +6,14 @@ using temp.Domain;
 
 namespace temp.Controllers.Projects
 {
-    public class Delete
+    public class Create
     {
         public class Command : IRequest
         {
-            // change to guid later
             public Guid Id { get; set; }
+            // change to title later
+            public string Name { get; set; }
+            public string Description { get; set; }
         }
 
         public class Handler : IRequestHandler<Command>
@@ -24,13 +26,16 @@ namespace temp.Controllers.Projects
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var project = await _context.Projects.FindAsync(request.Id);
+                var project = new Project
+                {
+                    Id = request.Id,
+                                // change to title later
 
-                if (project == null)
-                    throw new Exception("Could not find project");
+                    Name = request.Name,
+                    Description = request.Description,
+                };
 
-                _context.Remove(project);              
-
+                _context.Projects.Add(project);
                 var success = await _context.SaveChangesAsync() > 0;
 
                 if (success) return Unit.Value;

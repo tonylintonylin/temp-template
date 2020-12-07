@@ -10,8 +10,8 @@ using temp.Domain;
 namespace temp.Data.Migrations
 {
     [DbContext(typeof(tempContext))]
-    [Migration("20201206231051_projectEntityAdded")]
-    partial class projectEntityAdded
+    [Migration("20201207012805_projectEntityWithGuid")]
+    partial class projectEntityWithGuid
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -240,10 +240,9 @@ namespace temp.Data.Migrations
 
             modelBuilder.Entity("temp.Domain.Project", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");

@@ -84,7 +84,9 @@ namespace temp
             services.AddControllersWithViews(options =>
             {
                 options.Filters.Add(typeof(GlobalExceptionFilter));
-                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+                // options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+                // no cors yet, add it next
+                options.Filters.Add(new IgnoreAntiforgeryTokenAttribute());
                 options.Filters.Add(typeof(ControllerAccessorFilter)); // required for ultra-clean architecture
 
             }).AddFlatAreas(new FlatAreaOptions())
