@@ -26,7 +26,10 @@ namespace temp.Domain
         public virtual DbSet<ThingC> ThingC { get; set; }
         public virtual DbSet<ThingD> ThingD { get; set; }
         public virtual DbSet<ThingE> ThingE { get; set; }
+
+        // change to Users later
         public virtual DbSet<User> User { get; set; }
+
         public virtual DbSet<Viewed> Viewed { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
