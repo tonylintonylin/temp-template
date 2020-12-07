@@ -5,7 +5,7 @@ using MediatR;
 using System.Collections.Generic;
 using temp.Domain;
 
-namespace temp.Controllers.Customer
+namespace temp.Controllers.Customers
 {
     [ApiController]
     [Menu("Customer")]
@@ -20,7 +20,7 @@ namespace temp.Controllers.Customer
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Domain.Customer>>> List()
+        public async Task<ActionResult<List<Customer>>> List()
         {
             return await _mediator.Send(new List.Query());
         }

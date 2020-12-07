@@ -14,7 +14,7 @@ namespace temp.Domain
             : base(options)
         {
         }
-        public virtual DbSet<Project> Project { get; set; }
+        public virtual DbSet<Project> Projects { get; set; }
         public virtual DbSet<Customer> Customer { get; set; }
         public virtual DbSet<Error> Error { get; set; }
         public virtual DbSet<Login> Login { get; set; }

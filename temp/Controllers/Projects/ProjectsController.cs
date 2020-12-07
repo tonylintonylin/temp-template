@@ -24,6 +24,8 @@ namespace temp.Controllers.Projects
         {
             return await _mediator.Send(new List.Query());
         }
+
+
         // [HttpGet]
         // public async Task<IActionResult> List([FromQuery]List.Query query)
         // {
@@ -38,6 +40,12 @@ namespace temp.Controllers.Projects
         // [HttpGet("{id}", Order = 10)]
         // public async Task<IActionResult> Detail(Detail model) => await model.GetAsync();
 
+        // [HttpGet("{id}")]
+        // public async Task<ActionResult<Project>> Details(int id)
+        // {
+        //     return await _mediator.Send(new Details.Query{Id = id});
+        // }
+
         // [HttpGet("edit/{id?}")]
         // public async Task<IActionResult> Edit(int id) => await new Edit { Id = id }.GetAsync();
 
@@ -47,6 +55,11 @@ namespace temp.Controllers.Projects
         // [HttpPost("delete"), AjaxOnly]
         // public async Task<IActionResult> Delete(Delete model) => await model.PostAsync();
 
+        // [HttpDelete("{id}")]
+        // public async Task<ActionResult<Unit>> Delete(int id) // change to guid later
+        // {
+        //     return await _mediator.Send(new Delete.Command{Id = id});
+        // }
         // // Ancillary actions
 
         // [HttpGet("import")]  // Step 1
