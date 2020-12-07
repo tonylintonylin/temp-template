@@ -4,16 +4,17 @@ using System.Threading.Tasks;
 using MediatR;
 using temp.Domain;
 
-namespace temp.Controllers.Projects
+namespace temp.Controllers.Issues
 {
     public class Create
     {
         public class Command : IRequest
         {
             public Guid Id { get; set; }
-            // change to title later
             public string Title { get; set; }
             public string Description { get; set; }
+            public Guid ProjectId { get; set; }
+            public string ProjectTitle { get; set; }
         }
 
         public class Handler : IRequestHandler<Command>
@@ -26,16 +27,16 @@ namespace temp.Controllers.Projects
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var project = new Project
+                var issue = new Issue
                 {
                     Id = request.Id,
-                                // change to title later
-
                     Title = request.Title,
                     Description = request.Description,
+                    ProjectId = request.ProjectId,
+                    ProjectTitle = request.ProjectTitle,
                 };
 
-                _context.Projects.Add(project);
+                _context.Issues.Add(issue);
                 var success = await _context.SaveChangesAsync() > 0;
 
                 if (success) return Unit.Value;

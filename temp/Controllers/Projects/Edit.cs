@@ -12,7 +12,7 @@ namespace temp.Controllers.Projects
         {
             public Guid Id { get; set; }
             //change title later
-            public string Name { get; set; }
+            public string Title { get; set; }
             public string Description { get; set; }
         }
 
@@ -31,7 +31,7 @@ namespace temp.Controllers.Projects
                 if (project == null)
                     throw new Exception("Could not find proj");
 
-                project.Name = request.Name ?? project.Name;            
+                project.Title = request.Title ?? project.Title;            
                 project.Description = request.Description ?? project.Description;                     
 
                 var success = await _context.SaveChangesAsync() > 0;

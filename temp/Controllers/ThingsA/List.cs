@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using MediatR;
@@ -59,6 +60,8 @@ namespace temp.Controllers.ThingsA
                 public int? ThingBId { get; set; }
                 public int? ThingCId { get; set; }
                 public int? OwnerId { get; set; }
+                public DateTime CreatedDate { get; set; }
+                public DateTime CreateOn { get; set; }
             }
 
             //temp.Domain.ThingA and result.thingA is confusing right now
@@ -192,6 +195,8 @@ namespace temp.Controllers.ThingsA
                         ThingCId = query.ThingCId,
                         OwnerId = query.OwnerId,
                         OwnerAlias = query.OwnerAlias,
+                        CreatedDate = query.CreatedDate,
+                        CreateOn = query.CreatedOn
                     });
                 }
 

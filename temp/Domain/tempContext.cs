@@ -14,7 +14,10 @@ namespace temp.Domain
             : base(options)
         {
         }
+        
         public virtual DbSet<Project> Projects { get; set; }
+        public virtual DbSet<Issue> Issues { get; set; }
+
         public virtual DbSet<Customer> Customer { get; set; }
         public virtual DbSet<Error> Error { get; set; }
         public virtual DbSet<Login> Login { get; set; }
@@ -36,11 +39,35 @@ namespace temp.Domain
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Project>(entity =>
+            modelBuilder.Entity<Issue>(entity =>
             {
-                entity.Property(p => p.Name)
+                entity.Property(p => p.Title)
                     .IsRequired()
                     .HasMaxLength(50);
+
+                // entity.HasOne(d => d.Owner)
+                //     .WithMany(p => p.Issue)
+                //     .HasForeignKey(d => d.OwnerId)
+                //     .OnDelete(DeleteBehavior.ClientSetNull)
+                //     .HasConstraintName("FK_CAMPAIGN_REF1_USER");
+
+                entity.HasOne(d => d.Project)
+                    .WithMany(p => p.Issue)
+                    .HasForeignKey(d => d.ProjectId)
+                    .HasConstraintName("FK_Issue_REFERENCE_Project");
+            });
+
+            modelBuilder.Entity<Project>(entity =>
+            {
+                entity.Property(p => p.Title)
+                    .IsRequired()
+                    .HasMaxLength(50);
+                    
+                // entity.HasOne(d => d.Owner)
+                //     .WithMany(p => p.Project)
+                //     .HasForeignKey(d => d.OwnerId)
+                //     .OnDelete(DeleteBehavior.ClientSetNull)
+                //     .HasConstraintName("FK_CAMPAIGN_REF2_USER");
             });
             
             // modelBuilder.Entity<Project>(entity =>
