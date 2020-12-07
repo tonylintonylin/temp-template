@@ -105,6 +105,13 @@ namespace temp.Controllers.Users
         //     return await _mediator.Send(command);
         // }
 
+        // [HttpPost]
+        // public async Task<ActionResult<Unit>> Create(Create.Command command)
+        // {
+        //     var user = new CreateUserAsync()
+        //     return user;
+        // }
+
         // [HttpPut("{id}")]
         // public async Task<ActionResult<Unit>> Edit(Guid id, Edit.Command command)
         // {

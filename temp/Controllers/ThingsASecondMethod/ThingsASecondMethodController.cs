@@ -2,52 +2,18 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using MediatR;
-using System.Collections.Generic;
-using temp.Domain;
-using static temp.Controllers.ThingsA.List;
 
-namespace temp.Controllers.ThingsA
+namespace temp.Controllers.ThingsASecondMethod
 {
     [ApiController]
     [Menu("ThingsA")]
-    // [Route("thingsa")]
     [Route("api/[controller]")]
-    public class ThingsAController : Controller
+    public class ThingsASecondMethodController : Controller
     {
-        private readonly IMediator _mediator;
-
-        public ThingsAController(IMediator mediator)
-        {
-            _mediator = mediator; 
-        }
-// return thinga needs to now return result
-        // [HttpGet]
-        // public async Task<ActionResult<List<ThingA>>> List()
-        // {
-        //     return await _mediator.Send(new List.Query());
-        // }
-        // [HttpGet]
-        // public async Task<IActionResult> List([FromQuery] List model) {
-        //     return await model.GetAsync();
-        // }
-
-        [HttpGet]
-        public async Task<ActionResult<Result>> List([FromQuery]List.Query query)
-        {
-            return await _mediator.Send(query);
-        }
-
-        // [HttpGet]
-        // public async Task<IActionResult> List([FromQuery]List.Query query)
-        // {
-        //      return await _mediator.Send(new List.Query());
-        // }
-
         // #region Pages
 
-        // [HttpGet]
-        // public async Task<IActionResult> List([FromQuery] List model) => await model.GetAsync();
+        [HttpGet]
+        public async Task<IActionResult> List([FromQuery] List model) => await model.GetAsync();
 
         // [HttpGet("{id}", Order = 10)]
         // public async Task<IActionResult> Detail(Detail model) => await model.GetAsync();

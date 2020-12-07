@@ -36,9 +36,6 @@ namespace temp.Domain
         public int TotalThingsD { get; set; }
         public int TotalThingsE { get; set; }
 
-        // public int Project { get; set; }
-        // public int Issue { get; set; }
-
         public string Role { get; set; }
         public string IdentityId { get; set; }
         public string IdentityName { get; set; }
@@ -65,6 +62,10 @@ namespace temp.Domain
         public virtual ICollection<ThingD> ThingD { get; set; }
         public virtual ICollection<ThingE> ThingE { get; set; }
         public virtual ICollection<Viewed> Viewed { get; set; }
+
+        //shouldl be total
+        // public int Project { get; set; }
+        // public int Issue { get; set; }
 
         // public virtual ICollection<Issue> Issue { get; set; }
         // public virtual ICollection<Project> Project { get; set; }

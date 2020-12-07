@@ -11,7 +11,6 @@ namespace temp.Controllers.Projects
         public class Command : IRequest
         {
             public Guid Id { get; set; }
-            // change to title later
             public string Title { get; set; }
             public string Description { get; set; }
         }
@@ -29,8 +28,6 @@ namespace temp.Controllers.Projects
                 var project = new Project
                 {
                     Id = request.Id,
-                                // change to title later
-
                     Title = request.Title,
                     Description = request.Description,
                 };

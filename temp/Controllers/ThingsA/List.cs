@@ -21,15 +21,6 @@ namespace temp.Controllers.ThingsA
             public int? OwnerId { get; set; }
         }
 
-        // protected IQueryable<ThingA> FilterQuery(int? Filter, IQueryable<ThingA> queryable) { 
-        //     switch (Filter)
-        //     {
-        //         case 1: queryable = queryable.Where(c => _viewedService.GetIds("ThingA").Contains(c.Id)); break;
-        //         case 2: queryable = queryable.Where(c => c.OwnerId == _currentUser.Id); break;
-        //     }
-        //     return queryable;
-        // }
-        
         // need to clean this part up later and refactor to using another class
         // Output
         public class Result : PagedModel<Areas.ThingsA.Detail>
