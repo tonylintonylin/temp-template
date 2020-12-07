@@ -14,24 +14,24 @@ namespace temp.Controllers.ThingsASecondMethod
     public class ThingsASecondMethodController : Controller
     {
         // #region Pages
-        private readonly tempContext _context;
+        // private readonly tempContext _context;
 
-        public ThingsASecondMethodController(tempContext context)
-        {
-            _context = context;
-        }
+        // public ThingsASecondMethodController(tempContext context)
+        // {
+        //     _context = context;
+        // }
 
-        // GET: api/Tickets
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<ThingA>>> GetThingsA()
-        {
-            return await _context.ThingA.ToListAsync();
-        }
-
+        // // GET: api/ThingsA
         // [HttpGet]
-        // public async Task<IActionResult> List([FromQuery] List model) {
-        //     return await model.GetAsync();
-        // } 
+        // public async Task<ActionResult<IEnumerable<ThingA>>> GetThingsA()
+        // {
+        //     return await _context.ThingA.ToListAsync();
+        // }
+
+        [HttpGet]
+        public async Task<IActionResult> List([FromQuery] List model) {
+            return await model.GetAsync();
+        } 
 
         // [HttpGet("{id}", Order = 10)]
         // public async Task<IActionResult> Detail(Detail model) => await model.GetAsync();
