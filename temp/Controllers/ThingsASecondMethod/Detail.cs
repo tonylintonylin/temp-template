@@ -52,7 +52,7 @@ namespace temp.Controllers.ThingsASecondMethod
                                    .OrderByDescending(o => o.Id).Take(4).ToListAsync();
             _related.Prepare(thingsE, ThingsE, thingA.TotalThingsE, thingA.Id, thingA.Name);
 
-            await _viewedService.Log(Id, "ThingA", thingA.Name);
+      //      await _viewedService.Log(Id, "ThingA", thingA.Name);
 
             var result = new Result 
             { 

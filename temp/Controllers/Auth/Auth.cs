@@ -10,15 +10,16 @@ namespace temp.Controllers.Auth
     {
         // #region Login
 
-        [HttpGet("login")]
-        public IActionResult Login(string returnUrl) => new Login { ReturnUrl = returnUrl }.Get();
+        // [HttpGet("login")]
+        // public IActionResult Login(string returnUrl) => new Login { ReturnUrl = returnUrl }.Get();
 
         // [HttpPost("login")]
         // public async Task<IActionResult> Login([FromForm]Login model) => await model.PostAsync();
-        [HttpPost("login")]
-        public async Task<IActionResult> Login([FromQuery]Login model) => await model.PostAsync();
+        // [HttpPost("login")]
+        // public async Task<IActionResult> Login([FromQuery]Login model) => await model.PostAsync();
 //            var result = await _identityService.PasswordSignInAsync(Email, Password);
-
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromForm]Login model) => await model.PostAsync();
         // #endregion
 
         // #region Logout
