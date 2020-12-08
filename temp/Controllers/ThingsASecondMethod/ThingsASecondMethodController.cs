@@ -71,9 +71,10 @@ namespace temp.Controllers.ThingsASecondMethod
 
         // [HttpPost("delete"), AjaxOnly]
         // public async Task<IActionResult> Delete(Delete model) => await model.PostAsync();
-        [HttpPost("delete")]
-        public async Task<IActionResult> Delete(Delete model) => await model.PostAsync();
-
+        // [HttpPost("delete")]
+        // public async Task<IActionResult> Delete(Delete model) => await model.PostAsync();
+        // [HttpPost("{id}")]
+        // public async Task<IActionResult> Delete(Delete model, int id) => await model.PostAsync(id);
         // // Ancillary actions
 
         // [HttpGet("import")]  // Step 1

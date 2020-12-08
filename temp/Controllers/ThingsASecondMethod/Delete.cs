@@ -15,7 +15,7 @@ namespace temp.Controllers.ThingsASecondMethod
 
         #region Handlers
 
-        public override async Task<IActionResult> PostAsync()
+        public async Task<IActionResult> PostAsync(int Id)
         {
             var thingA = await _db.ThingA.SingleOrDefaultAsync(c => c.Id == Id);
             
