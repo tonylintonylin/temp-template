@@ -28,11 +28,25 @@ namespace temp.Controllers.ThingsASecondMethod
         //     return await _context.ThingA.ToListAsync();
         // }
 
+        // [HttpGet]
+        // public async Task<IActionResult> List([FromQuery] List model) {
+        //     return await model.GetAsync();
+        // } 
         [HttpGet]
-        public async Task<IActionResult> List([FromQuery] List model) {
+        public async Task<ActionResult<IEnumerable<ThingA>>> List([FromQuery] List model)
+        {
             return await model.GetAsync();
-        } 
+        }
 
+// from booking cqrs
+        // [HttpGet]
+        // public async Task<IActionResult> List([FromQuery]List.Query query)
+        // {
+        //     var model = await _mediator.Send(query);
+        //     return View(model);
+        // }
+        //end of booking cqrs
+        
         // [HttpGet("{id}", Order = 10)]
         // public async Task<IActionResult> Detail(Detail model) => await model.GetAsync();
 

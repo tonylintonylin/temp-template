@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace temp.Controllers.ThingsASecondMethod
 {
@@ -20,7 +21,7 @@ namespace temp.Controllers.ThingsASecondMethod
 
         #region Handlers
 
-        public override async Task<IActionResult> GetAsync()
+        public async Task<ActionResult<IEnumerable<ThingA>>> GetAsync()
         {
             var query = BuildQuery();
 
@@ -29,8 +30,37 @@ namespace temp.Controllers.ThingsASecondMethod
 
             _mapper.Map(items, Items);
 
-            return View(this);
+            //var result = new Result { i = items, totalRows = TotalRows };
+            // return View(this);
+            return items;
         }
+
+        // public class Result
+        // {
+        //     public System.Collections.Generic.List<temp.Domain.ThingA> i { get; set; }
+        //     public int totalRows { get; set; }
+
+            // public List<Booking> Bookings { get; set; } = new List<Booking>();
+
+            // public class Booking
+            // {
+            //     public int Id { get; set; }
+            //     public string BookingDate { get; set; }
+            //     public string BookingNumber { get; set; }
+
+            //     public int FlightId { get; set; }
+            //     public string Flight { get; set; }
+            //     public string From { get; set; }
+            //     public string To { get; set; }
+            //     public string Date { get; set; }
+
+            //     public int SeatId { get; set; }
+            //     public string Seat { get; set; }
+
+            //     public int TravelerId { get; set; }
+            //     public string Traveler { get; set; }
+            // }
+        // }
 
         #endregion
 

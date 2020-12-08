@@ -30,6 +30,10 @@ namespace temp.Areas.ThingsA
             _mapper.Map(items, Items);
 
             return View(this);
+
+            // to conver to web api
+            // return the items query with totalrows/query count
+            // then test incrementing pages for next set of items
         }
 
         #endregion
