@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using temp.Domain;
+using static temp.Controllers.ThingsASecondMethod.List;
 
 namespace temp.Controllers.ThingsASecondMethod
 {
@@ -33,7 +34,7 @@ namespace temp.Controllers.ThingsASecondMethod
         //     return await model.GetAsync();
         // } 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ThingA>>> List([FromQuery] List model)
+        public async Task<ActionResult<Result>> List([FromQuery] List model)
         {
             return await model.GetAsync();
         }

@@ -21,7 +21,7 @@ namespace temp.Controllers.ThingsASecondMethod
 
         #region Handlers
 
-        public async Task<ActionResult<IEnumerable<ThingA>>> GetAsync()
+        public async Task<ActionResult<Result>> GetAsync()
         {
             var query = BuildQuery();
 
@@ -30,15 +30,15 @@ namespace temp.Controllers.ThingsASecondMethod
 
             _mapper.Map(items, Items);
 
-            //var result = new Result { i = items, totalRows = TotalRows };
+            var result = new Result { i = items, totalRows = TotalRows };
             // return View(this);
-            return items;
+            return result;
         }
 
-        // public class Result
-        // {
-        //     public System.Collections.Generic.List<temp.Domain.ThingA> i { get; set; }
-        //     public int totalRows { get; set; }
+        public class Result
+        {
+            public System.Collections.Generic.List<temp.Domain.ThingA> i { get; set; }
+            public int totalRows { get; set; }
 
             // public List<Booking> Bookings { get; set; } = new List<Booking>();
 
@@ -60,7 +60,7 @@ namespace temp.Controllers.ThingsASecondMethod
             //     public int TravelerId { get; set; }
             //     public string Traveler { get; set; }
             // }
-        // }
+        }
 
         #endregion
 
