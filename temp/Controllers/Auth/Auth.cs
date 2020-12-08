@@ -5,6 +5,7 @@ namespace temp.Controllers.Auth
 {
     [ApiController]
     [Menu("Login")]
+    [Route("api/[controller]")]
     public class AuthController : Controller
     {
         // #region Login
