@@ -50,6 +50,8 @@ namespace temp.Controllers.ThingsASecondMethod
 
         // [HttpGet("{id}", Order = 10)]
         // public async Task<IActionResult> Detail(Detail model) => await model.GetAsync();
+        
+        // tracks a user for recently viewed viewservice, will cause error without login
         [HttpGet("{id}", Order = 10)]
         public async Task<ActionResult<Detail.Result>> Detail([FromQuery] Detail model, int id)
         {
@@ -73,8 +75,8 @@ namespace temp.Controllers.ThingsASecondMethod
         // public async Task<IActionResult> Delete(Delete model) => await model.PostAsync();
         // [HttpPost("delete")]
         // public async Task<IActionResult> Delete(Delete model) => await model.PostAsync();
-        // [HttpPost("{id}")]
-        // public async Task<IActionResult> Delete(Delete model, int id) => await model.PostAsync(id);
+        [HttpPost("{id}")]
+        public async Task<IActionResult> Delete(Delete model, int id) => await model.PostAsync(id);
         // // Ancillary actions
 
         // [HttpGet("import")]  // Step 1
