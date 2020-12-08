@@ -39,7 +39,7 @@ namespace temp.Controllers.ThingsASecondMethod
             return await model.GetAsync();
         }
 
-// from booking cqrs
+        // from booking cqrs
         // [HttpGet]
         // public async Task<IActionResult> List([FromQuery]List.Query query)
         // {
@@ -47,18 +47,32 @@ namespace temp.Controllers.ThingsASecondMethod
         //     return View(model);
         // }
         //end of booking cqrs
-        
+
         // [HttpGet("{id}", Order = 10)]
         // public async Task<IActionResult> Detail(Detail model) => await model.GetAsync();
+        [HttpGet("{id}", Order = 10)]
+        public async Task<ActionResult<Detail.Result>> Detail([FromQuery] Detail model, int id)
+        {
+            return await model.GetAsync(id);
+        }
 
+// cqrs mediator reactivities
+        //         [HttpGet("{id}")]
+        // [Authorize]
+        // public async Task<ActionResult<ActivityDto>> Details(Guid id)
+        // {
+        //     return await Mediator.Send(new Details.Query{Id = id});
+        // }
         // [HttpGet("edit/{id?}")]
         // public async Task<IActionResult> Edit(int id) => await new Edit { Id = id }.GetAsync();
 
         // [HttpPost("edit/{id?}")]
         // public async Task<IActionResult> Edit(Edit model) => await model.PostAsync();
-        
+
         // [HttpPost("delete"), AjaxOnly]
         // public async Task<IActionResult> Delete(Delete model) => await model.PostAsync();
+        [HttpPost("delete")]
+        public async Task<IActionResult> Delete(Delete model) => await model.PostAsync();
 
         // // Ancillary actions
 

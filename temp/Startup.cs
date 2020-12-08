@@ -90,9 +90,10 @@ namespace temp
                 options.Filters.Add(typeof(ControllerAccessorFilter)); // required for ultra-clean architecture
 
             }).AddFlatAreas(new FlatAreaOptions())
-              .AddRazorRuntimeCompilation();
-
-            services.AddControllers();
+              .AddRazorRuntimeCompilation()
+              .AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                );
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);

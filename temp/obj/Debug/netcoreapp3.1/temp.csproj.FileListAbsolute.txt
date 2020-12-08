@@ -441,3 +441,6 @@ C:\Users\tonyl\Desktop\temp\temp\obj\Debug\netcoreapp3.1\temp.pdb
 C:\Users\tonyl\Desktop\temp\temp\obj\Debug\netcoreapp3.1\temp.genruntimeconfig.cache
 C:\Users\tonyl\Desktop\temp\temp\bin\Debug\netcoreapp3.1\MediatR.dll
 C:\Users\tonyl\Desktop\temp\temp\bin\Debug\netcoreapp3.1\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\tonyl\Desktop\temp\temp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\tonyl\Desktop\temp\temp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\tonyl\Desktop\temp\temp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
